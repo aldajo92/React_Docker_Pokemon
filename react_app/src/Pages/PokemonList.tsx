@@ -23,41 +23,37 @@ const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
     };
 
     return (
-        <>
-            <div className='gridContainer'>
-                <div style={gridStyle}>
-                    <div className='pokeType' style={{ backgroundColor: pokeColor[pokemon.name] }}>
+        <div style={gridStyle}>
+            <div className='pokeType' style={{ backgroundColor: pokeColor[pokemon.name] }}>
 
-                        <img className='pokeImage' src={pokemon.sprites.front_default} alt='pokemon' />
+                <img className='pokeImage' src={pokemon.sprites.front_default} alt='pokemon' />
 
-                        <div style={containerStyle}>
-                            <div style={itemStyle}>
-                                <div className='pokeName'>
-                                    {pokemon.name}
-                                </div>
-                            </div>
-                            <div style={itemStyle}>
-                                <div className='pokeOwned'>
-                                    <div># <span>{pokemon.order}</span></div>
-                                </div>
-                            </div>
+                <div style={containerStyle}>
+                    <div style={itemStyle}>
+                        <div className='pokeName'>
+                            {pokemon.name}
                         </div>
-
-                        <div className='pokeTypes'>
-                            {
-                                pokemon.types.map((type, i) => {
-                                    return (
-                                        <div className='pokeSkill' key={i}>
-                                            {type.type.name}
-                                        </div>
-                                    )
-                                })
-                            }
+                    </div>
+                    <div style={itemStyle}>
+                        <div className='pokeOwned'>
+                            <div># <span>{pokemon.order}</span></div>
                         </div>
                     </div>
                 </div>
+
+                <div className='pokeTypes'>
+                    {
+                        pokemon.types.map((type, i) => {
+                            return (
+                                <div className='pokeSkill' key={i}>
+                                    {type.type.name}
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
-        </>
+        </div>
     );
 };
 
