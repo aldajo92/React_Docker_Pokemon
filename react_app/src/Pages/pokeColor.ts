@@ -1,4 +1,8 @@
-const pokeColor = {
+interface PokeColorMap {
+    [key: string]: string;
+}
+
+const pokeColor: PokeColorMap = {
     bulbasaur: '#64dbb2',
     ivysaur: '#64dbb2',
     venusaur: '#64dbb2',
@@ -26,6 +30,6 @@ const pokeColor = {
     yellow: '#facd4b',
     purple: '#9f5bba',
     coco: '#ca8179'
-}
+};
 
-export default pokeColor;
+export default pokeColor; 

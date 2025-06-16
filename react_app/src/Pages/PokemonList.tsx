@@ -1,12 +1,25 @@
-import React from 'react'
-import Grid from '@mui/material/Grid'
-import pokeColor from '../Pages/pokeColor'
-import '../Assets/style.css'
+import React from 'react';
+import { Pokemon } from '../Services/PokeService';
+import pokeColor from '../Pages/pokeColor';
+import '../Assets/style.css';
 
-function PokemonList({ pokemon }) {
-    const gridStyle = {
+interface PokemonListProps {
+    pokemon: Pokemon;
+}
+
+const PokemonList: React.FC<PokemonListProps> = ({ pokemon }) => {
+    const gridStyle: React.CSSProperties = {
         flexGrow: 1,
         padding: 16,
+    };
+
+    const containerStyle: React.CSSProperties = {
+        display: 'flex',
+        justifyContent: 'space-between',
+    };
+
+    const itemStyle: React.CSSProperties = {
+        flex: 1,
     };
 
     return (
@@ -17,19 +30,18 @@ function PokemonList({ pokemon }) {
 
                         <img className='pokeImage' src={pokemon.sprites.front_default} alt='pokemon' />
 
-                        <Grid container>
-                            <Grid item xs={6}>
+                        <div style={containerStyle}>
+                            <div style={itemStyle}>
                                 <div className='pokeName'>
                                     {pokemon.name}
                                 </div>
-
-                            </Grid>
-                            <Grid item xs={6}>
+                            </div>
+                            <div style={itemStyle}>
                                 <div className='pokeOwned'>
                                     <div># <span>{pokemon.order}</span></div>
                                 </div>
-                            </Grid>
-                        </Grid>
+                            </div>
+                        </div>
 
                         <div className='pokeTypes'>
                             {
@@ -46,7 +58,7 @@ function PokemonList({ pokemon }) {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default PokemonList
+export default PokemonList; 
